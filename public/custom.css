@@ -1,0 +1,90 @@
+.btn-block{
+	width:100%;
+}
+
+body { padding-top: 75px; }
+
+.no-padding{
+	padding: 0;
+	margin-top: 0;
+}
+
+// Mixin
+.center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Usage
+.container {
+  width: 940px;
+  .center-block();
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #D7EFF7;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #ffffff;
+}
+
+
+.navbar-brand-custom {
+  float: left;
+  /*padding: 2px 2px;*/
+  /*font-size: 32px;*/
+  line-height: 20px;
+  height: 75px;
+}
+.navbar-brand-custom img {
+  width:200px;
+  padding: 0;
+}
+
+.counter {
+  background: #4285F4;
+  min-height: 100px;
+  text-align: center;
+}
+
+.counter h3 {
+  color: #E5E5E5;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+#countdown {
+  color: #FFFFFF;
+}
+
+#countdown span {
+  color: #E5E5E5;
+  font-size: 26px;
+  font-weight: normal;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+/*.content-wrapper2{
+
+  min-height: 100%;
+  background-color: #B8D6E0;*/
+}

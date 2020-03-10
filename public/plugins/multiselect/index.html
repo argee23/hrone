@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/dubrox/Multiple-Dates-Picker-for-jQuery-UI/master/jquery-ui.multidatespicker.css" rel="stylesheet"/>
+<link href="https://code.jquery.com/ui/1.12.1/themes/pepper-grinder/jquery-ui.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.rawgit.com/dubrox/Multiple-Dates-Picker-for-jQuery-UI/master/jquery-ui.multidatespicker.js"></script>
+<style type="text/css">
+	body {
+    background:#f0f0f0;
+    margin-top: 20px;
+}
+
+.nav>li>a:hover, .nav>li>a:focus, .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+    background:#fff;
+}
+.dropdown {
+    background:#fff;
+    border:1px solid #cccccc;
+    border-radius:4px;
+    width:300px;    
+}
+.dropdown-menu>li>a {
+    color:#428bca;
+}
+.dropdown ul.dropdown-menu {
+    border-radius:4px;
+    box-shadow:none;
+    margin-top:20px;
+    width:300px;
+}
+.dropdown ul.dropdown-menu:before {
+    content: "";
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
+}
+.dropdown ul.dropdown-menu:after {
+    content: "";
+    border-bottom: 12px solid #ccc;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    z-index: 9;
+}
+.dropdown ul.dropdown-menu li:hover .mega {
+  display: block;
+}
+
+.mega {
+  width: 600px;
+  display: none;
+  position: absolute;
+  left: 300px;
+  top: 0px;
+  background: #FFF;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(204,204,204,1);
+-moz-box-shadow: 2px 3px 5px 0px rgba(204,204,204,1);
+box-shadow: 2px 3px 5px 0px rgba(204,204,204,1);
+}
+.mega aside {
+  float: left;
+  width: 150px;
+}
+.mega .featured {
+  float: right;
+  width: 440px;
+}
+.mega .featured img {
+  max-width: 400px;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <ul class="nav navbar-nav">
+	<li class="dropdown">
+	  <a href="http://totoprayogo.com" class="dropdown-toggle" data-toggle="dropdown">Categories <span class="glyphicon glyphicon-tag pull-right"></span></a>
+	  <ul class="dropdown-menu">
+		<li><a href="http://totoprayogo.com" target="_blank">Cameras</a>
+		  <div class="mega">
+			<aside>
+			  <ul>
+				<li><a href="http://totoprayogo.com" target="_blank">Sony</a></li>
+				<li><a href="http://totoprayogo.com" target="_blank">Canon</a></li>
+				<li><a href="http://totoprayogo.com" target="_blank">Kodak</a></li>
+			  </ul>
+			</aside>
+			<div class="featured">
+			  <img alt="featured-cameras" src="http://cdn.mos.cms.futurecdn.net/c01d303202bc3da34fd86a913ca9cbb6-650-80.jpg"/>
+			</div>
+			<br clear="all"/>
+		  </div>
+		</li>
+		<li><a href="http://totoprayogo.com" target="_blank">Mobile Phones</a>
+		  <div class="mega">
+			<aside>
+			  <ul>
+				<li><a href="http://totoprayogo.com" target="_blank">Sony</a></li>
+				<li><a href="http://totoprayogo.com" target="_blank">Samsung</a></li>
+				<li><a href="http://totoprayogo.com" target="_blank">LG</a></li>
+				<li><a href="http://totoprayogo.com" target="_blank">Xiaomi</a></li>
+			  </ul>
+			</aside>
+			<div class="featured">
+			  <img alt="featured-cameras" src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iphone/iphone-6s-colors.jpg"/>
+			</div>
+			<br clear="all"/>
+		  </div>
+		</li>
+		<li><a href="http://totoprayogo.com" target="_blank">Computers</a></li>
+		<li><a href="http://totoprayogo.com" target="_blank">Monitors</a></li>
+		<li><a href="http://totoprayogo.com" target="_blank">Others</a></li>
+	  </ul>
+	</li>
+  </ul>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function(){
+     $('#datePicker2').datepicker({
+	format: 'd-M-yyyy',
+    inline: false,
+    lang: 'en',
+    multidate: 3,
+    closeOnDateSelect: true
+	     })
+	});
+</script> 

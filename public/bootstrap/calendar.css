@@ -1,0 +1,52 @@
+	.calendar{
+		margin:auto;
+		border-collapse: collapse;
+	}
+	table.calendar{
+		margin:auto;
+		border-collapse: collapse;
+
+	}
+	.with_sched{
+		color:#ff0000;
+		width:100%;
+		height:100px;
+	}
+	.days td{
+		width:150px; height:100px; padding:4px;
+		border:1px solid #1CBA1E;
+		vertical-align: top;
+		background-color: #ccc; /*EEFCEE*/
+		font-size: 13px;
+		color:#024003;
+	}
+	.date_today{
+		color: #ff0000;
+		font-weight: bold;
+		background-color: #BFBA09;
+		height: 100%;
+	}
+	.calendar_month{
+		background-color: #46EF49;
+		height: 40px;
+		border:1px solid #1CBA1E;
+		color:#ff0000;
+
+	}
+	/*months years*/
+	.th_month{
+		text-transform: uppercase;
+		text-align: center;
+	}
+	/*week days*/
+	.td_days{
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	color:#fff;
+	letter-spacing: 2px;
+	}
+	.calendar_week_day{
+		background-color: #1CBA1E;
+		height: 40px;
+	}

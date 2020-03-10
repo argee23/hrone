@@ -1,0 +1,123 @@
+.blink_text { 
+        -webkit-animation-name: blinker;
+ -webkit-animation-duration: 1s;
+ -webkit-animation-timing-function: linear;
+ -webkit-animation-iteration-count: infinite;
+
+ -moz-animation-name: blinker;
+ -moz-animation-duration: 1s;
+ -moz-animation-timing-function: linear;
+ -moz-animation-iteration-count: infinite;
+ animation-name: blinker;
+ animation-duration: 1s;
+ animation-timing-function: linear; 
+    animation-iteration-count: infinite; color: #ff0000; 
+} 
+
+@-moz-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; } 
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; } 
+} 
+
+@keyframes blinker {  
+    0% { opacity: 1.0; } 
+    50% { opacity: 0.0; }      
+    100% { opacity: 1.0; } 
+} 
+/*used in application form*/
+.sentence_{
+    text-align: justify;
+   /* width: 22em; */
+    border: 1px solid #000000;
+    word-wrap: break-word;
+}
+.black_small{
+    font-color:#000;
+    font-size: 12px;
+}
+/* end used in recruitment/job_application/applicant profile*/
+
+label input {
+  display: none;/* <-- hide the default checkbox */
+}
+label span {/* <-- style the artificial checkbox */
+  height: 10px;
+  width: 15px;
+  border: 1px solid #0CBF15;
+  background-color: #E1FAE3;
+  display: inline-block;
+  position: relative;
+}
+[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+  content: '\2714';
+  position: absolute;
+  top: -5px;
+  left: 0;
+}
+
+/*=============radio on off*/
+.radio_switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.radio_switch input {display:none;}
+
+.radio_slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.radio_slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .radio_slider {
+  background-color: #2196F3;
+}
+
+input:focus + .radio_slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .radio_slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded radio_slider */
+.radio_slider.round {
+  border-radius: 34px;
+}
+
+.radio_slider.round:before {
+  border-radius: 50%;
+}
+/* end raiod on off*/
+
+
