@@ -11,6 +11,7 @@ class poll extends General {
 	
 		
 	}
+
 	public	function index(){
 		$data['poll'] = $this->poll_model->get_poll();
 		$data['participant'] = $this->poll_model->is_participant();
@@ -20,6 +21,7 @@ class poll extends General {
 		$this->load->view('employee_portal/footer');
 
 	}
+
 	public function create(){
         
  
@@ -44,40 +46,53 @@ class poll extends General {
 	public function recieve(){
 
 
-			$arr = array();
-				$this->db->select('*');
+		$arr = array();
+		$this->db->select('*,d.fullname as receiver,c.fullname as sender ,a.sender_id as employee_id');
 		$this->db->from('chat a');
 
 		$this->db->join('group_user_x b', 'a.group_id = b.group_id');
-	
-	
-		
+		$this->db->join('employee_info c', 'a.sender_id = c.employee_id');
+		$this->db->join('employee_info d', 'b.employee_id = d.employee_id');
+		$this->db->where('b.employee_id',$this->input->post('emps'));
 
 		
 		
 		$s  = $this->db->get();
 		$qs = $s->result();
 		foreach($qs as $qs ){
-			$arr[] = array('msg'=>$qs->message,'sender'=>$qs->sender_id);
+
+			$arr[] = array('msg'=>$qs->message,'sender'=>$qs->sender,'receiver'=> $qs->receiver,'employee_id'=>$qs->employee_id,'group_id'=>$qs->group_id);
 
 		}
 
 		echo json_encode($arr);
 	}
+
 	public function send(){
-		$this->data = array(
-			'name'		=> ' ',
-			);
-		$this->db->insert('group_chat', $this->data);
-		$qw = $this->db->insert_id(); 
 
 
-				$this->data = array(
-				'group_id'		=> $qw,
-				'employee_id'   => '220000'
+				$qw = rand();
+
+
+		$data = array(
+					   array(
+					     
+									'employee_id'   => $this->input->post('receiver'),
+
+									'group_id' =>  $qw
+					   ),
+					   array(
+					      
+									'employee_id'   => $this->input->post('sender_id'),
+
+									'group_id' =>  $qw
+					  )
 			);
-		$this->db->insert('group_user_x', $this->data);
-				$this->data = array(
+
+$this->db->insert_batch('group_user_x', $data); 
+			
+
+			$this->data = array(
 			'message'		=> $this->input->post('msg'),
 			'sender_id'     => $this->input->post('sender_id'),
 			'timestamp'     => date("Y-m-d H:i:s"),
@@ -91,6 +106,23 @@ class poll extends General {
 
 		echo 'success';
 	}
+	public function get_online_employee(){
+		
+		$this->db->select('*');
+		$this->db->from('employee_info');
+		
+		$s  = $this->db->get();
+		$qs = $s->result();
+		$arr = array();
+		 foreach($qs as $qc){
+
+		 $arr[] = array('fullname'=>$qc->fullname,'employee_id'=>$qc->employee_id);		
+
+		 }
+		 echo json_encode($arr);
+
+	}
+
 	public function delete(){
 		$data['v'] = 'send';
 		$this->load->view('employee_portal/poll/template',$data);

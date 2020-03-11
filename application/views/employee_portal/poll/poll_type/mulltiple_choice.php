@@ -65,7 +65,7 @@
 </div>
 </div>
 
-  <script src="<?php echo base_url('node_modules/socket.io/node_modules/socket.io-client/socket.io.js');?>"></script>
+   <script src="<?php echo base_url('public/plugins/node_modules/socket.io/node_modules/socket.io-client/socket.io.js');?>"></script>
 <script type="text/javascript">
 
 

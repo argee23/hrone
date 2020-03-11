@@ -65,7 +65,7 @@
 </div>
 </div>
 
-  <script src="<?php echo base_url('node_modules/socket.io/node_modules/socket.io-client/socket.io.js');?>"></script>
+   <script src="<?php echo base_url('public/plugins/node_modules/socket.io/node_modules/socket.io-client/socket.io.js');?>"></script>
 <script type="text/javascript">
 
 
@@ -97,7 +97,87 @@ $(this).children('div').css({'background-color':'white','color':'black'});
 
 
 
+     $(document).on('click','.button',function(){
+      
+      $( "#load" ).show();
+        var val = [];
+        var question = []
+        var attem = [];
+        var questionid =[];
+    
+        $('.question').each(function(i){
+            attem[i] = $(this).val();
+            questionid[i] = $(this).attr('data-werw');
+        })
+        $(':checkbox:checked').each(function(i){
+            val[i] = $(this).val();
+            question[i] = $(this).attr('data-a');
+             poll = $(this).attr('data-c');
+            
+        });
+                  poll_name = <?php echo $this->uri->segment(4); ?>;
 
+
+
+
+       var dataString = { 
+              val : val,
+              question:question,
+              poll_name:poll_name,
+              poll:poll,
+              attem:attem,
+              questionid:questionid
+
+       
+            };
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url('employee_portal/poll/saved_polling').'/'.$this->uri->segment(5);?>",
+            data: dataString,
+            dataType: "json",
+            cache : false,
+            success: function(data){
+ 
+        
+              if(true){
+
+                $('#c').html('<div class="alert alert-success">POll Succes!</div>');
+                var socket = io.connect( 'http://'+window.location.hostname+':3000' );
+
+            
+
+          
+
+
+$.each(data, function(k, v) {
+    
+    socket.emit('new_message', { 
+                 count: v.count,
+                id:v.id,
+                opt:v.opt,
+                wc:v.wc,
+                questionid:v.questionid
+               
+                });
+
+
+  });
+
+
+              
+
+              } 
+          
+            },error: function(xhr, status, error) {
+              alert(error);
+            },
+
+      
+        
+
+    });
+ });
 
 
 </script>
